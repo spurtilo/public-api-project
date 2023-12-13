@@ -11,25 +11,50 @@ body {
     background-image: url("data:image/svg+xml,<svg id='patternId' width='100%' height='100%' xmlns='http://www.w3.org/2000/svg'><defs><pattern id='a' patternUnits='userSpaceOnUse' width='30' height='30' patternTransform='scale(3) rotate(0)'><rect x='0' y='0' width='100%' height='100%' fill='hsla(0, 69%, 14%, 1)'/><path d='M0 22.5h30v15H0zm15-15h30v15H15m-30-15h30v15h-30zm15-15h30v15H0z'  stroke-width='1' stroke='hsla(0, 4%, 40%, 1)' fill='none'/></pattern></defs><rect width='800%' height='800%' transform='translate(0,0)' fill='url(%23a)'/></svg>");
 }
 h1 {
-    color: whitesmoke;
+    color: black;
+    padding: 0;
+    margin: 0;
 }
 h2 {
-    color: whitesmoke;
+    color: black;
+    padding: 0;
+    margin: 0;
 }
 label {
-    color: whitesmoke;
+    color: black;
 }
 a {
-    color: whitesmoke;
+    color: black;
 }
 
-#jokeContainer {
-
+.flexContainer {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    width: 600px;
+    height: 600px;
+    background-color: white;
+    opacity: 70%;
+    border-radius: 50%;
 }
 
 #myForm {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    justify-content: flex-start;
     gap: 20px;
+    margin-top: 200px;
 }
+
+#jokeContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    max-width: 400px;
+    max-height: 200px;
+    gap: 20px;
+    margin-top: 200px;
+}
+

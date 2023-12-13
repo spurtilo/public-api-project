@@ -8,26 +8,32 @@
 </head>
 <body>
     <% if (!locals.jokeSetup) { %>
-    <h1>What is your name?</h1>
-    <form id="myForm" action="/submit" method="POST">
-        <div>
-            <label for="firstNameInput">First Name:</label>
-            <input type="text" id="firstNameInput" name="firstName">
-        </div>
-        <div>
-            <label for="lastNameInput">Last Name:</label>
-            <input type="text" id="lastNameInput" name="lastName">
-        </div>
-        <div>
-            <input type="submit" value="Submit">
-        </div>
-    </form>
+    <div class="flexContainer">
+        <form id="myForm" action="/submit" method="POST">
+            <div>
+                <h1>What is your name?</h1>
+            </div>
+            <div>
+                <label for="firstNameInput">First Name:</label>
+                <input type="text" id="firstNameInput" name="firstName">
+            </div>
+            <div>
+                <label for="lastNameInput">Last Name:</label>
+                <input type="text" id="lastNameInput" name="lastName">
+            </div>
+            <div>
+                <input type="submit" value="Submit">
+            </div>
+        </form>
+    </div>
     <% } else { %>
-    <div id="jokeContainer">
-        <h1>I think a person with a name like that might find this funny:</h1>
-        <h1> <%= jokeSetup %> </h1>
-        <h2> <%= jokeDelivery %> </h2>
-        <a href="/">RETURN</a>
+    <div class="flexContainer">
+        <div id="jokeContainer">
+            <div><h2>I think a person with a name like that might find this funny:</h1></div>
+            <div><h2> <%= jokeSetup %> </h2></div>
+            <div><h2> <%= jokeDelivery %> </h2></div>
+            <div><a href="/">RETURN</a></div>
+        </div>
     </div>
     <% } %>
 </body>
