@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jokes On You!</title>
     <link rel="stylesheet" href="styles/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato&family=Playfair+Display&family=Playfair+Display+SC:wght@700&family=Work+Sans&display=swap" rel="stylesheet">
 </head>
 <body>
     <% if (!locals.joke) { %>
@@ -14,29 +17,31 @@
                 <h1>What is your name?</h1>
             </div>
             <div>
-                <label for="firstNameInput">First Name:</label>
-                <input type="text" id="firstNameInput" name="firstName">
+                <input type="text" id="firstNameInput" name="firstName" placeholder="First Name">
             </div>
             <div>
-                <label for="lastNameInput">Last Name:</label>
-                <input type="text" id="lastNameInput" name="lastName">
+                <input type="text" id="lastNameInput" name="lastName" placeholder="Last Name">
             </div>
-            <div>
-                <input type="submit" value="Submit">
+            <div id="formSubmitRow">
+                <input type="submit" value="SUBMIT" class="button">
             </div>
         </form>
     </div>
     <% } else { %>
     <div class="flexContainer">
         <div id="jokeContainer">
-            <div><h2>I think a person with a name like that might find this funny:</h1></div>
+            <div><h1>You should find this funny:</h1></div>
             <% if (joke.setup) { %>
             <div><h2> <%= joke.setup %> </h2></div>
             <div><h2> <%= joke.delivery %> </h2></div>
             <% } else { %>
             <div><h2> <%= joke.joke %> </h2></div>
             <% } %>
-            <div><a href="/">RETURN</a></div>
+            <div id="returnLinkRow">
+                <div class="returnLinkCell"><a href="/" class="button">RETURN</a></div>
+                <div class="returnLinkCell"></div>
+                <div class="returnLinkCell"></div>
+            </div>
         </div>
     </div>
     <% } %>
