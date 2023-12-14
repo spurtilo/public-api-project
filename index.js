@@ -41,7 +41,6 @@ app.post('/submit', async (req, res) => {
     try {
         const fullName = `${req.body.firstName}${req.body.lastName}`;
         const firstID = userNameAsNumber(fullName);
-        console.log(firstID)
         const lastID = firstID + 9;
         console.log(API_URL + firstID + '-' + lastID + '&amount=10')
     
