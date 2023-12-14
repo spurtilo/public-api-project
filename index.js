@@ -24,6 +24,14 @@ function userNameAsNumber(name) {
     return result;
 }
 
+function findSafeJoke(jokes) {
+    for (const joke of jokes) {
+        if (joke.safe === true) {
+            return joke;
+        }
+    }
+}
+
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -35,17 +43,16 @@ app.get('/', (req, res) => {
 app.post('/submit', async (req, res) => {
     try {
         const fullName = `${req.body.firstName}${req.body.lastName}`.toLowerCase()
-        const numberForName = userNameAsNumber(fullName);
+        const firstID = userNameAsNumber(fullName);
+        const lastID = firstID + 9
     
-        const result = await axios.get(API_URL + numberForName);
+        const result = await axios.get(API_URL + firstID + '-' + lastID + '&amount=10');
+        const jokeToDisplay = findSafeJoke(result.data.jokes);
+        console.log(jokeToDisplay);
         res.render('index.ejs', {
-            jokeSetup: result.data.setup,
-            jokeDelivery: result.data.delivery
+            joke: jokeToDisplay
         });
-    
-        console.log(fullName)
-        console.log(numberForName);
-        console.log(result.data.setup, result.data.delivery)
+        
         res.sendStatus(200);
     } catch (error) {
         console.log(error.message)

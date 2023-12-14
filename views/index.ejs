@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="styles/main.css">
 </head>
 <body>
-    <% if (!locals.jokeSetup) { %>
+    <% if (!locals.joke) { %>
     <div class="flexContainer">
         <form id="myForm" action="/submit" method="POST">
             <div>
@@ -30,8 +30,12 @@
     <div class="flexContainer">
         <div id="jokeContainer">
             <div><h2>I think a person with a name like that might find this funny:</h1></div>
-            <div><h2> <%= jokeSetup %> </h2></div>
-            <div><h2> <%= jokeDelivery %> </h2></div>
+            <% if (joke.setup) { %>
+            <div><h2> <%= joke.setup %> </h2></div>
+            <div><h2> <%= joke.delivery %> </h2></div>
+            <% } else { %>
+            <div><h2> <%= joke.joke %> </h2></div>
+            <% } %>
             <div><a href="/">RETURN</a></div>
         </div>
     </div>
