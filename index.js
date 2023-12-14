@@ -17,11 +17,16 @@ function userNameAsNumber(name) {
 }
 
 function findSafeJoke(jokes) {
+    let result = null;
     for (const joke of jokes) {
         if (joke.safe === true) {
-            return joke;
+            result = joke;
         }
     }
+    if (!result) {
+        return jokes[0];
+    }
+    return result;
 }
 
 app.use(express.static('public'));
@@ -42,6 +47,7 @@ app.post('/submit', async (req, res) => {
     
         const result = await axios.get(API_URL + firstID + '-' + lastID + '&amount=10');
         const jokeToDisplay = findSafeJoke(result.data.jokes);
+        console.log(jokeToDisplay)
         res.render('index.ejs', {
             joke: jokeToDisplay
         });
