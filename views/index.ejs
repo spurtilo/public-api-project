@@ -33,10 +33,10 @@
         <div id="jokeContainer">
             <div><h1>You should find this funny:</h1></div>
             <% if (joke.setup) { %>
-            <div><h2> <%= joke.setup %> </h2></div>
-            <div><h2> <%= joke.delivery %> </h2></div>
+            <div><h2> <%- joke.setup %> </h2></div>
+            <div><h2> <%- joke.delivery %> </h2></div>
             <% } else { %>
-            <div><h2> <%= joke.joke %> </h2></div>
+            <div><h2> <%- joke.joke %> </h2></div>
             <% } %>
             <div id="returnLinkRow">
                 <div class="returnLinkCell"><a href="/" class="button">RETURN</a></div>

@@ -29,6 +29,22 @@ function findSafeJoke(jokes) {
     return result;
 }
 
+function formatJoke(input) {
+    if (input.joke && input.joke.includes('\n')) {
+        input.joke = input.joke.split('\n').join('<br>');
+    }
+
+    if (input.setup) {
+        if (input.setup.includes('\n')) {
+            input.setup = input.setup.split('\n').join('<br>');
+        }
+        else if (input.delivery.includes('\n')) {
+            input.delivery = input.delivery.split('\n').join('<br>');
+        }
+    }
+    return input;
+}
+
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -36,19 +52,18 @@ app.get('/', (req, res) => {
     res.render('index.ejs');
 });
 
-
 app.post('/submit', async (req, res) => {
     try {
         const fullName = `${req.body.firstName}${req.body.lastName}`;
         const firstID = userNameAsNumber(fullName);
         const lastID = firstID + 9;
-        console.log(API_URL + firstID + '-' + lastID + '&amount=10')
     
         const result = await axios.get(API_URL + firstID + '-' + lastID + '&amount=10');
-        const jokeToDisplay = findSafeJoke(result.data.jokes);
-        console.log(jokeToDisplay)
+        const chosenJoke = findSafeJoke(result.data.jokes);
+        const formattedJoke = formatJoke(chosenJoke);
+
         res.render('index.ejs', {
-            joke: jokeToDisplay
+            joke: formattedJoke 
         });
 
         res.sendStatus(200);
