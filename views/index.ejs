@@ -10,8 +10,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Lato&family=Playfair+Display&family=Playfair+Display+SC:wght@700&family=Work+Sans&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div id="siteHeader">Jokes on You!</div>
-    <% if (!locals.joke) { %>
+    <div id="pageTitle">Jokes on You!</div>
+    <% if (!locals.joke) { %> <!-- If no joke is available, the XML form is rendered. -->
     <div class="flexContainer">
         <form id="myForm" action="/submit" method="POST">
             <div>
@@ -28,11 +28,11 @@
             </div>
         </form>
     </div>
-    <% } else { %>
+    <% } else { %> <!-- Else a joke is rendered. -->
     <div class="flexContainer">
         <div id="jokeContainer">
             <div><h1>You should find this funny:</h1></div>
-            <% if (joke.setup) { %>
+            <% if (joke.setup) { %> <!-- This checks if the joke is one part or two part and renders accordingly. -->
             <div><h2> <%- joke.setup %> </h2></div>
             <div><h2> <%- joke.delivery %> </h2></div>
             <% } else { %>
