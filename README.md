@@ -45,12 +45,10 @@ The HTML structure renders a form to collect the user's name and displays a joke
 
 ## Screenshots
 
-## Screenshots
-
 1. **Submit name**
 
 ![Header of the page](public/images/screenshots/screen1.png)
 
 2. **Get joke**
 
-![Book entries listing](public/images/screenshots/screen2.png)S
+![Book entries listing](public/images/screenshots/screen2.png)
