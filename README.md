@@ -42,3 +42,15 @@ The HTML structure renders a form to collect the user's name and displays a joke
 3. Install dependencies using `npm install`.
 4. Start the server using `npm start`.
 5. Access the website in your browser at `http://localhost:3000`.
+
+## Screenshots
+
+## Screenshots
+
+1. **Submit name**
+
+![Header of the page](public/images/screenshots/screen1.png)
+
+2. **Get joke**
+
+![Book entries listing](public/images/screenshots/screen2.png)S
